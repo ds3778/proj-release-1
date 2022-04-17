@@ -10,16 +10,10 @@
       <div id="app">
         <div id="nav">
           <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link> |
-          <router-link to="/about2">About2</router-link> |
-          <router-link to="/layout">Layout</router-link> |
-          <router-link to="/dynamic">Dynamic</router-link> |
-          <router-link to="/props">Props</router-link> |
-          <router-link to="/events">Events</router-link> |
-          <router-link to="/webservices">Web Services</router-link> |
-          <router-link to="/simple_state">Simple State</router-link> |
-          <router-link to="/web_state">Web State</router-link> |
-          <router-link to="/bc_demo">Block Chain Demo</router-link>
+          <router-link to="/login">Login</router-link> |
+          <router-link to="/myinfo">My Info</router-link> |
+          <router-link to="/myrepos">My Repos</router-link> |
+          <router-link to="/repodetails">My Repo Details</router-link>
         </div>
         <router-view />
       </div>
