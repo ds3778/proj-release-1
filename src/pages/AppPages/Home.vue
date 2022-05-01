@@ -1,5 +1,5 @@
 <template>
-  <div class="hello"><h4>Welcome to my demo project</h4></div>
+  <div class="hello"><h4>Welcome to my demo project Proj Release 2</h4></div>
 </template>
 
 <script lang="ts">
