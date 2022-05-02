@@ -15,7 +15,7 @@ fastify.register(fastifyHttpProxy, {
     rewriteRequestHeaders: (origReq, headers) => {
       return {
         ...headers,
-        authorization: `Token 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`,
+        authorization: `${process.env.GITHUB_ACCESS_TOKEN}`, //`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`,
       };
     },
   },
@@ -24,6 +24,7 @@ fastify.register(fastifyHttpProxy, {
 //setup CORS
 fastify.register(fastifyCors, {
   origin: '*',
+  methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
 });
 
 //register the swagger middleware, listen on /docs

@@ -1,2 +1,2 @@
 ####
-GET http://localhost:5000/github/users/ds3778/repos HTTP/1.1
+GET http://127.0.0.1:5000/github/users/ds3778/repos HTTP/1.1
