@@ -2,7 +2,7 @@ const fastify = require('fastify')({ logger: true });
 const fastifyHttpProxy = require('fastify-http-proxy');
 const fastifySwagger = require('fastify-swagger');
 const fastifyCors = require('fastify-cors');
-const PORT = 5000;
+const PORT = 9094;
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -46,7 +46,8 @@ fastify.register(fastifySwagger, {
 
 const start = async () => {
   try {
-    await fastify.listen(PORT);
+    await fastify.listen(PORT, '0.0.0.0');
+    console.log(`Listening on port: `);
   } catch (error) {
     fastify.log.error(error);
     process.exit(1);
