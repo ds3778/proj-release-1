@@ -12,8 +12,7 @@
           <router-link to="/">Home</router-link> |
           <router-link to="/login">Login</router-link> |
           <router-link to="/myinfo">My Info</router-link> |
-          <router-link to="/myrepos">My Repos</router-link> |
-          <router-link to="/repodetails">My Repo Details</router-link>
+          <router-link to="/myrepos">My Repos</router-link>
         </div>
         <router-view />
       </div>
