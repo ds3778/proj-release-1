@@ -5,6 +5,7 @@ This github repository includes two project:
 1. backend microservice in folder ![microservice](/microservice)
 
    Microservice is dockerized. To run the service, run the below docker commands:
+
    `docker build -t backend_service_dockerized .`
 
    `docker run -p 55000:9094 -d backend_service_dockerized`
