@@ -1,21 +1,30 @@
 <template>
-  <div class="q-pa-md row items-start">
-    <q-card flat class="my-card bg-primary text-white">
-      <q-card-section>
-        <div class="text-h6">Login here !!!</div>
-      </q-card-section>
-    </q-card>
+  <div class="q-pa-md">
+    <q-banner class="bg-primary text-white">
+      <h6>Authenticated vs Unauthenticated</h6>
+    </q-banner>
+
+    <div class="q-pa-md q-gutter-sm">
+      <q-btn @click="Increment" color="primary" label="Authenticate"></q-btn>
+      <q-btn color="secondary" label="Unauthorized" />
+      <p>{{ count }}</p>
+    </div>
   </div>
   <!-- About, Background, Course, Publications, Photo-->
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-
+import { ref, defineComponent } from 'vue';
+import { api } from 'boot/axios';
 export default defineComponent({
   name: 'LoginPage',
   setup() {
-    return {};
+    const count = ref(0);
+    const Increment = async () => {
+      const res = await api.get('user');
+      console.log(res);
+    };
+    return { count, Increment };
   },
 });
 </script>
