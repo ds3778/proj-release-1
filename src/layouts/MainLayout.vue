@@ -10,8 +10,8 @@
       <div id="app">
         <div id="nav">
           <router-link to="/">Home</router-link> |
-          <router-link to="/login">Login</router-link> |
-          <router-link to="/myinfo">My Info</router-link> |
+          <router-link to="/login">Authenticate</router-link> |
+          <router-link to="/myinfo">My Gists</router-link> |
           <router-link to="/myrepos">My Repos</router-link>
         </div>
         <router-view />
