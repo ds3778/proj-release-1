@@ -16,22 +16,14 @@
       <q-btn @click="authorize" color="primary" label="Authenticate"></q-btn>
       <q-btn @click="notauthorize" color="secondary" label="Not Authentic" />
       <p>
-        <b>Authenticate response: </b>
+        <b>Response: </b>
         {{
           JSON.stringify(
             userData != null
               ? userData.data != null
                 ? userData.data.plan
-                : undefined
-              : undefined
-          )
-        }}
-      </p>
-      <p>
-        <b>Not Authentic response </b>
-        {{
-          JSON.stringify(
-            unauthorizedData != null ? unauthorizedData : undefined
+                : 'No plan object'
+              : 'Error in calling api'
           )
         }}
       </p>
@@ -63,13 +55,17 @@ export default defineComponent({
     const unauthorizedData = ref({});
     const notauthorize = async () => {
       try {
-        const user: userType = await axios.get('https://api.github.com/user', {
-          headers: {
-            Accept: 'application/vnd.github.v3+json',
-          },
-        });
-
+        const user: userType = await axios.get(
+          'https://api.github.com/users/ds3778',
+          {
+            headers: {
+              Accept: 'application/vnd.github.v3+json',
+            },
+          }
+        );
+        console.log(JSON.stringify(user.data.plan));
         unauthorizedData.value = user;
+        userData.value = '';
         return unauthorizedData;
       } catch (error) {
         console.log(
@@ -83,13 +79,16 @@ export default defineComponent({
     const userData = ref({});
     const authorize = async () => {
       try {
-        const user: userType = await axios.get('https://api.github.com/user', {
-          headers: {
-            authorization:
-              'Basic ' +
-              btoa('ds3778' + ':' + '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'),
-          },
-        });
+        const user: userType = await axios.get(
+          'https://api.github.com/users/ds3778',
+          {
+            headers: {
+              authorization:
+                'Basic ' +
+                btoa('ds3778' + ':' + `${process.env.GITHUB_ACCESS_TOKEN}`),
+            },
+          }
+        );
         console.log(JSON.stringify(user.data.plan));
         userData.value = user;
         unauthorizedData.value = '';
