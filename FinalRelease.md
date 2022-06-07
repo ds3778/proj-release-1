@@ -18,3 +18,10 @@ Once the microservice is up and running, my repository details can be seen in 'M
 
 Architecture diagram for the application:
 ![Architecture diagram](/src/assets/architecture-diagram.png)
+
+The application has 4 features:
+
+1. Authhenticate - This page lets user see the difference between authenticated response and unautenticated response.
+2. My Gists - This page lists out all gists files in my Github account
+3. My Repos - This page lists out all my repos in Github. Displays if its public or private and other details
+4. Create new repo - This page lets user create a new repo in my Github
