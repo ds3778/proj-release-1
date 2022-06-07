@@ -16,6 +16,10 @@ const routes: RouteRecordRaw[] = [
         path: '/repodetails',
         component: () => import('pages/AppPages/RepoDetails.vue'),
       },
+      {
+        path: '/newrepo',
+        component: () => import('pages/AppPages/NewRepo.vue'),
+      },
     ],
   },
 
