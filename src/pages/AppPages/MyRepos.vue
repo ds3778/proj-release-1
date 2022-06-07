@@ -31,6 +31,7 @@ type rowType = {
   url: string;
   language: string;
   updated_at: string;
+  visibility: string;
 };
 
 const columns = [
@@ -39,11 +40,17 @@ const columns = [
   { name: 'url', label: 'URL', align: 'left', field: 'url', sortable: true },
   { name: 'language', label: 'Language', align: 'left', field: 'language' },
   { name: 'updated_at', label: 'Updated', align: 'left', field: 'updated_at' },
+  {
+    name: 'visibility',
+    label: 'Visibility',
+    align: 'left',
+    field: 'visibility',
+  },
 ];
 let rows = ref([] as rowType[]);
 
 onMounted(async () => {
-  const res = await api.get('users/ds3778/repos');
+  const res = await api.get('user/repos');
 
   rows.value = [];
   const rList = res.data as rowType[];
@@ -54,6 +61,7 @@ onMounted(async () => {
       url: row.url,
       language: row.language,
       updated_at: row.updated_at,
+      visibility: row.visibility,
     };
     return mappedRow;
   });

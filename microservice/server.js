@@ -15,7 +15,7 @@ fastify.register(fastifyHttpProxy, {
     rewriteRequestHeaders: (origReq, headers) => {
       return {
         ...headers,
-        authorization: `${process.env.GITHUB_ACCESS_TOKEN}`, //`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`,
+        authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`, //`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`,
       };
     },
   },
